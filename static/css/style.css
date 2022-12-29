@@ -1,0 +1,42 @@
+body {
+    background-color: #fdf4b0;
+}
+
+#form1 {
+    position: fixed;
+    left: 43%;
+    top: 33%;
+}
+
+#form2 {
+    background-color: aqua;
+    max-width:200px;
+    max-height:150px;
+    position: fixed;
+    left: 43%;
+    top: 23%;
+}
+
+#num1 {
+    margin: 5%;
+}
+
+#num2 {
+    margin: 5%;
+}
+
+#resul {
+    background: #a4dcb9;
+    position: fixed;
+    top: 49%;
+    left: 43.6%;
+    text-align: center;
+    
+}
+
+#cal {
+    position: fixed;
+    left: 47%;
+    background-color: #32b9be;
+}
+
