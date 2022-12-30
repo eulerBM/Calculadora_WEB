@@ -11,26 +11,48 @@
 
 </head>
 <body>
-    <select id="form2" class="form-select" aria-label="Default select example">
-        <option selected id="soma">Somar</option>
-        <option id="dimi" >Diminuir</option>
-        <option id="divi" >Dividir</option>
-        <option id="mul"  >Multiplicar</option>
-        <option id="porc" >Porcentagem</option>
-      </select>
-    <form id="form1" action="" method="POST">
+    <input disabled id="texto" type="text" value= {{ resul }}></input>
+    
+    
+    <form id="form1" action="" method="post" >
+
+        <select name="opr"  id="form2" class="form-select" aria-label="Default select example">
+            <option value="Somar">Somar</option>
+            <option value="Diminuir">Diminuir</option>
+            <option value="Dividir">Dividir</option>
+            <option value="Multiplicar">Multiplicar</option>
+            <option value="Porcentagem">Porcentagem</option>
+          </select>
 
         {% csrf_token %}  
-        <INput id="num1" type="number" name="somar1"></INput> <br>
-        <INput id="num2" type="number" name="somar2"></INput><br>
-        <button id="cal" >Calcular</button><br>
+        <INput id="num1" type="number" name="somar1" ></INput> <br>
+        <INput id="num2" type="number" name="somar2" ></INput><br>
+        <button id="cal" type="submit" >Calcular</button><br>
+        
+        <button id="texto_copiar" type="text" name="texto-copiar" onclick="copiarTexto()">Copiar</button>
+        </form>
 
-        <input id="resul" value= {{ resul }}></input>
-    
-
-    
-     
     </form>
+
+    <script>
+        function copiarTexto() {
+            let textoCopiado = document.getElementById("texto");
+            textoCopiado.select();
+            textoCopiado.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            alert("O texto é: " + textoCopiado.value);
+        }
+    </script>
+
+    <form action="" method="get">
+        <button id="texto_limpar" type="text" name="texto_limpar">Limpar</button>
+
+    </form>
+
+
+
+
+   
 
 
         

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 import math
 
 def home_0(request):
@@ -7,20 +7,39 @@ def home_0(request):
         # Pega os input do front
         get_box1 = eval(request.POST['somar1'])
         get_box2 = eval(request.POST['somar2'])
+        opr = request.POST['opr']
 
-        # pega os input da operação
-        soma = request.POST['soma']
-        dimi = request.POST['dimi']
-        divi = request.POST['divi']
-        mul = request.POST['mul']
-        porc = request.POST['porc']
+        # faz as operação e retorna pro usuario com o resultado
+        if opr == "Somar":
 
-        resul = soma1 + soma2
+            resul = get_box1 + get_box2
+            return render (request, "html/main_home.html",{'resul':resul})
 
-        if 
-        
-        
-        return render (request, "html/main_home.html",{'resul':resul})
+        elif opr == "Diminuir":
+
+            resul = get_box1 - get_box2
+            return render (request, "html/main_home.html",{'resul':resul})
+
+        elif opr == "Dividir":
+
+            resul = get_box1 / get_box2
+            return render (request, "html/main_home.html",{'resul':resul})
+
+        elif opr == "Multiplicar":
+
+            resul = get_box1 * get_box2
+            return render (request, "html/main_home.html",{'resul':resul})
+
+        elif opr == "Porcentagem":
+            
+            resul = get_box1 % get_box2
+            return render (request, "html/main_home.html",{'resul':resul})
+
+
+
+        else:
+            HttpResponse('nao funcionou')
+       
 
     if request.method == 'GET':
         
